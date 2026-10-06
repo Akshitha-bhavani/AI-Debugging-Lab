@@ -1,0 +1,28 @@
+C ERROR: Segmentation fault (segfault)
+Message: "Segmentation fault (core dumped)". It is a runtime error.
+Cause: The program touched memory it is not allowed to use.
+Common reasons: using a pointer that is NULL or uninitialized; writing past the end of an array; scanf("%d", x) instead of scanf("%d", &x); returning the address of a local variable; using freed memory.
+Fix: initialize pointers; check for NULL before using them; stay inside array bounds; pass &variable to scanf.
+
+C ERROR: Array index out of bounds
+C does NOT check array bounds. An array int a[5] has valid indexes 0 to 4. Writing a[5] is undefined behaviour: it may crash, print garbage, or silently corrupt other variables. It is a runtime/logical problem, with no compiler error.
+Common reasons: loop condition i <= 5 instead of i < 5; forgetting the array starts at 0.
+Fix: use `for (i = 0; i < size; i++)`; keep the array size in a constant.
+
+C ERROR: Undeclared variable
+Message: "error: 'x' undeclared (first use in this function)". It is a compilation error.
+Cause: A variable is used before it is declared, is declared in a different scope, or is misspelled.
+Fix: declare every variable with its type before use (int x;); check spelling and case; include the needed header (for example stdio.h for printf).
+
+C ERROR: Wrong format specifiers
+printf and scanf need the correct specifier: %d int, %f float, %lf double (for scanf), %c char, %s string, %ld long, %u unsigned.
+Problems: printf("%d", 3.5) prints garbage; scanf("%f", &d) for a double d is wrong, use %lf; forgetting & in scanf for numbers and chars. Compilers may only give a warning, so enable -Wall.
+
+C ERROR: Missing semicolon and other syntax errors
+Message: "error: expected ';' before ..." . The compiler often reports the NEXT line, so check the line above.
+Other syntax errors: missing closing brace }, unmatched parentheses, missing quotes, using = in place of == inside if(), a semicolon right after if(...) or for(...) which makes the body empty.
+
+C: LOGICAL ERRORS
+The program compiles and runs but the result is wrong.
+Examples: integer division (5 / 2 equals 2, not 2.5); if (x = 5) assigns instead of compares; uninitialized variables hold garbage; forgetting break in switch cases; off-by-one in loops; comparing strings with == instead of strcmp().
+Debug by printing values with printf and tracing with small inputs.

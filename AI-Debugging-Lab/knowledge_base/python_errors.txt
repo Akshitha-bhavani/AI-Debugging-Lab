@@ -1,0 +1,38 @@
+PYTHON ERROR: IndexError
+Message: "IndexError: list index out of range". It is a runtime error.
+Cause: You used an index that does not exist. A list of length 3 has valid indexes 0, 1, 2 (and -1, -2, -3).
+Common reasons: using range(len(items) + 1), forgetting that indexing starts at 0, or reading from an empty list.
+Fix: loop with `for item in items` or `range(len(items))`; check `if items:` or `if i < len(items):` before indexing.
+
+PYTHON ERROR: TypeError
+Message examples: "unsupported operand type(s) for +: 'int' and 'str'", "'int' object is not callable", "'NoneType' object is not subscriptable". It is a runtime error.
+Cause: An operation is used on a value of the wrong type, e.g. adding a number to a string.
+Common reasons: input() always returns a string; a function returned None because it had no return statement; calling something that is not a function.
+Fix: convert types with int(), float() or str(); print type(value) to inspect; make sure functions return a value.
+
+PYTHON ERROR: NameError
+Message: "NameError: name 'x' is not defined". It is a runtime error.
+Cause: You used a variable or function name that Python has not seen yet.
+Common reasons: typo in a variable name, using a variable before assigning it, forgetting to import a module, variable defined inside a function but used outside (scope).
+Fix: check spelling (Python is case-sensitive), define the name before use, add the import.
+
+PYTHON ERROR: KeyError
+Message: "KeyError: 'name'". It is a runtime error.
+Cause: You asked a dictionary for a key that is not in it.
+Fix: use `my_dict.get("name")` or `my_dict.get("name", default)`; check `if "name" in my_dict:` first; print my_dict.keys() to see what exists.
+
+PYTHON ERROR: ZeroDivisionError
+Message: "ZeroDivisionError: division by zero". It is a runtime error.
+Cause: A number was divided (/, //, %) by zero.
+Common reasons: dividing by len(items) when the list is empty; a counter that was never increased.
+Fix: check `if divisor != 0:` before dividing, or catch the error with try/except ZeroDivisionError.
+
+PYTHON ERROR: SyntaxError
+Message examples: "SyntaxError: invalid syntax", "expected ':'", "unterminated string literal", "IndentationError: expected an indented block". The program does not start at all.
+Common reasons: missing colon after if/for/while/def, unmatched brackets or quotes, using = instead of == in a condition, wrong indentation, misspelled keyword.
+Fix: look at the line Python points to AND the line before it; check colons, brackets, quotes and indentation (use 4 spaces consistently).
+
+PYTHON: LOGICAL ERRORS
+The program runs without any error message but gives a wrong answer.
+Typical Python examples: off-by-one in range() (range(1, n) skips n); using = instead of += when accumulating; integer vs float division (/ gives float, // floors); wrong condition order in if/elif; modifying a list while looping over it; mutable default arguments like def f(x, items=[]).
+How to find them: print intermediate values, trace the code by hand with a small input, write test cases with known answers.

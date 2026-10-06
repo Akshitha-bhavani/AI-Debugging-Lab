@@ -1,0 +1,25 @@
+JAVA ERROR: NullPointerException
+Message: "Exception in thread main java.lang.NullPointerException". It is a runtime error.
+Cause: You called a method or accessed a field on a variable that is null (it points to no object).
+Common reasons: object declared but never created with new; a method returned null; array of objects created but elements not filled; uninitialized String.
+Fix: create the object (new ...); check `if (obj != null)` before use; compare strings with "text".equals(s) to avoid null problems.
+
+JAVA ERROR: ArrayIndexOutOfBoundsException
+Message: "java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5". It is a runtime error.
+Cause: Accessing an array position that does not exist. Array of length 5 has indexes 0 to 4. Unlike C, Java checks bounds and throws this exception.
+Common reasons: loop condition i <= arr.length instead of i < arr.length; forgetting zero-based indexing.
+Fix: use `for (int i = 0; i < arr.length; i++)` or the enhanced for-loop `for (int x : arr)`.
+
+JAVA ERRORS: Compilation errors
+These stop the program from being built. Common messages: "cannot find symbol" (misspelled name, missing import, undeclared variable); "';' expected" (missing semicolon); "class X is public, should be declared in a file named X.java" (file name must match the public class); "missing return statement"; "variable might not have been initialized"; "unreachable statement".
+Fix: read the first error first; later errors are often caused by it.
+
+JAVA ERRORS: Type errors
+Message: "incompatible types: possible lossy conversion from double to int" or "incompatible types: String cannot be converted to int".
+Cause: assigning a value to a variable of a type that cannot hold it without conversion.
+Fix: use a cast `int x = (int) 3.7;`, use Integer.parseInt(text) for strings, or choose the right variable type (double instead of int).
+
+JAVA: LOGICAL ERRORS
+Code compiles and runs but gives wrong output.
+Examples: comparing Strings with == instead of .equals(); integer division (7 / 2 is 3); off-by-one errors in loops; a semicolon after if(...); missing break in switch; modifying a collection while iterating (ConcurrentModificationException); wrong operator precedence.
+Debug with System.out.println, a debugger, and small hand-traced inputs.

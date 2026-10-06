@@ -1,0 +1,23 @@
+CONCEPT: Syntax errors
+A syntax error means the code breaks the grammar rules of the language, like a spelling mistake in a sentence. The compiler or interpreter refuses to run the program and usually points to a line number. Examples: missing colon in Python, missing semicolon in C or Java, unmatched brackets. The reported line may be one line after the real mistake.
+
+CONCEPT: Runtime errors
+A runtime error happens while the program is running, after it has started successfully. The program crashes or raises an exception. Examples: dividing by zero, index out of range, null pointer, file not found, wrong type used in an operation. They often depend on the input data.
+
+CONCEPT: Logical errors
+A logical error means the program runs without crashing but produces the wrong result, because the logic is wrong. No error message appears, so they are the hardest to find. Examples: wrong formula, off-by-one loop, wrong comparison operator, forgetting to update a variable. Find them with test cases, print statements and tracing by hand.
+
+CONCEPT: Debugging workflow
+1. Reproduce the problem with a specific input.
+2. Read the error message completely, starting with the type and the line number.
+3. Find the smallest piece of code that causes it.
+4. Form a guess about the cause.
+5. Check the guess with print statements, a debugger, or by tracing values by hand.
+6. Fix one thing at a time.
+7. Re-test, including earlier test cases, to make sure nothing else broke.
+
+CONCEPT: Test cases
+A test case is an input together with the output you expect. Writing them before or after the code helps you find bugs. Good test sets include normal cases (typical valid input), boundary cases (smallest/largest allowed values, first and last item), edge cases (empty input, single item, duplicates, zero, negative numbers) and invalid cases (wrong type, missing data). Always write the expected output yourself before running.
+
+CONCEPT: Edge cases
+Edge cases are unusual but valid situations where code often fails. Examples: an empty list or string, a list with one element, zero, negative numbers, very large numbers, repeated values, the first and last index, and the maximum or minimum value. Ask: what is the smallest, biggest and strangest input my code might receive?
